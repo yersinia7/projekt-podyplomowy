@@ -1,0 +1,22 @@
+.navig a {
+    color: #E2E2E2;
+    padding: 0px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+background-color: #E5E5E5;
+}
+
+a:hover {
+    color: white;
+    background: #808080
+}
+
+.info p {
+    margin: 10px 20px
+  }

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block page_title %} Title {% endblock %}
+
+{% block content %}
+<div class="lead text-center">
+
+<h3>Rezerwacja na film {{ room.movie_name }}, na godzinę {{ room.screening_time }}:</h3><br>
+
+{% if seats %}
+<h4>Dostępne miejsca:</h4>
+
+    <form action="{% url 'thanks' %}" method="POST">
+          {% csrf_token %}
+
+  <select name="selected_seat_id">
+      {% for seat in seats %}
+          <option value="{{ seat.id }}">rząd: {{ seat.row_number }}, miejsce: {{ seat.seat_number }} </option>
+      {% endfor %}
+  </select>
+        <br><br>
+        <label>Wybierz rodzaj biletu:</label>
+
+        <input type="radio" id="normalny" name="ticket" value="normalny" checked="checked">
+        <label for="normalny">normalny</label>
+        <input type="radio" id="ulgowy" name="ticket" value="ulgowy">
+        <label for="ulgowy">ulgowy</label>
+        <br><br>
+        <input type="submit" class="btn btn-secondary" value="Rezerwuj">
+
+    </form>
+
+{% else %}
+<p style="color:red">Niestety, na ten seans nie ma już wolnych miejsc.</p>
+{% endif %}
+
+</div>
+
+{% endblock %}

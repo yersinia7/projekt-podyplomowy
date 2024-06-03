@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_title %} Repertuar {% endblock %}
+
+{% block content %}
+<div class="lead text-center">
+<h1>Repertuar:</h1><br>
+        {% for movie in movies %}
+            <li class="list-unstyled"><a href="{% url 'movie-name' movie.slug %}" class="fw-bold">{{ movie.title }}</a> </li>
+        {% endfor%}
+</div>
+
+{% endblock %}

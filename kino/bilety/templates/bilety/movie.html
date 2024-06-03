@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block page_title %} {{ movie.title }} {% endblock %}
+
+{% block content %}
+<div class="lead text-center col-md-8 offset-md-2">
+<h1>{{movie.title }}</h1>
+</div>
+
+<div class="text-center info">
+    <div class="d-inline-block"><p class="info">{{ movie.age_restrictions }}</p></div>
+    <div class="d-inline-block"><p>{{ movie.genre }}</p></div>
+    <div class="d-inline-block"><p>{{ movie.production_country }}</p></div>
+    <div class="d-inline-block"> <p>{{ movie.duration }} min</p></div>
+</div>
+
+<div class="lead text-center">
+<h2>
+  Opis filmu
+</h2>
+
+<p class="lead text-center col-md-6 offset-md-3">{{ movie.description }} </p>
+
+<a href="{{ movie.trailer }}" class="fw-bold">Zobacz trailer.</a><br>
+</div>
+<div class="lead text-center">
+<br>
+<h4>Rezerwuj teraz:</h4>
+
+<form action="{% url 'reservation' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="room-id" value="{{ room.id }}">
+    <button type="submit" class="btn btn-secondary">{{ room.screening_time }}</button>
+</form>
+</div><br>
+
+{% endblock %}

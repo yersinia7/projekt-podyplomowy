@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_title %} Dziękujemy {% endblock %}
+
+{% block content %}
+<div class="lead text-center col-md-6 offset-md-3">
+<h1>Dziękujemy.</h1><br>
+
+<p class="fw-bold text-success">Rezerwacja wykonana pomyślnie.</p>
+
+<p>Pamiętaj o przybyciu do kina <span class="text-decoration-underline">najpóźniej 20 minut</span> przed godziną rozpoczęcia seansu - inaczej rezerwacja przepadnie!</p>
+
+<p>Życzymy miłego seansu.</p><br>
+<button type="button" class="btn btn-secondary"><a href="{% url 'index' %}" class="text-white fw-bold">Powrót na stronę główną.</a></button>
+
+</div>
+{% endblock %}
